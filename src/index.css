@@ -1,0 +1,70 @@
+*, *:before, *:after {
+  box-sizing: inherit;
+  flex: none;
+  min-height: 0;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+  font-size: 16px;
+  line-height: 1.2;
+}
+body {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus, input:focus {
+  outline: none;
+}
+
+p, div, span, label {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+}
+
+body,
+label,
+textarea,
+a,
+button,
+small,
+input,
+optgroup,
+select {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+em, i {
+  font-weight: 400;
+  font-style: italic;
+}
+
+b, strong {
+  font-weight: 600;
+  font-style: normal;
+}
+
+p {
+  font-size: var(--fontP);
+  margin: 0;
+}
+
+small {
+  font-size: var(--fontSmall);
+}
