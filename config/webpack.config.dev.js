@@ -1,6 +1,7 @@
 'use strict';
 
 const autoprefixer = require('autoprefixer');
+const customProperties = require('postcss-custom-properties');
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -170,12 +171,9 @@ module.exports = {
               },
               {
                 loader: require.resolve('postcss-loader'),
+                // We use PostCSS for autoprefixing and custom-properties.
                 options: {
-                  // Necessary for external CSS imports to work
-                  // https://github.com/facebookincubator/create-react-app/issues/2677
-                  ident: 'postcss',
                   plugins: () => [
-                    require('postcss-flexbugs-fixes'),
                     autoprefixer({
                       browsers: [
                         '>1%',
@@ -185,8 +183,11 @@ module.exports = {
                       ],
                       flexbox: 'no-2009',
                     }),
+                    customProperties({
+                      variables: require('../src/stylesVariables'),
+                    }),
                   ],
-                },
+                }
               },
             ],
           },
